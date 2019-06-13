@@ -28,12 +28,7 @@ void gpioConfig()
     //set as output mode
     io_conf.mode = GPIO_MODE_OUTPUT;
     //bit mask of the pins that you want to set,e.g.GPIO18/19
-    io_conf.pin_bit_mask = GPIO_OUTPUT_SEL(GPIO_SENSOR_PWR) |
-        GPIO_OUTPUT_SEL(GPIO_OUTPUT1) | GPIO_OUTPUT_SEL(GPIO_OUTPUT2) |
-        GPIO_OUTPUT_SEL(GPIO_MODEM_DTR) | GPIO_OUTPUT_SEL(GPIO_MODEM_RTS) |
-        GPIO_OUTPUT_SEL(GPIO_MODEM_CTS) | GPIO_OUTPUT_SEL(GPIO_SENMOD_PWR)
-        | GPIO_OUTPUT_SEL(RS485_DE);
-        //| GPIO_OUTPUT_SEL(GPIO_MODEM_PWR);
+    io_conf.pin_bit_mask = GPIO_OUTPUT_SEL(RS485_DE);
     //disable pull-down mode
     io_conf.pull_down_en = 0;
     //enable pull-up mode
