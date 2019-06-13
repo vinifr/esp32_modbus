@@ -62,12 +62,13 @@ static void modbus_task()
 {
     int i;
     int lenght = 0;
-    uint8_t data[9] = {0x01, 0x03, 0x00, 0x64, 0x00, 0x1C, 0x05, 0xDC, 0x00};
+    // modbus frame
+    uint8_t frame[9] = {0x01, 0x03, 0x00, 0x64, 0x00, 0x1C, 0x05, 0xDC, 0x00};
 
     while (1) {
         uart_flush(RS485UART);
         memset(buff, 0, 128);
-        write_frame(data, 8);
+        write_frame(frame, 8);
         if ((lenght=read_frame((uint8_t *)buff, 3)) > 0) {
             lenght=read_frame((uint8_t *)buff+3, buff[2]+2);
             printf("Modbus RX: ");
